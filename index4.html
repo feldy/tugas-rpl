@@ -1,0 +1,60 @@
+<html>
+<head>
+    <meta charset="utf-8">
+        <title>Test View</title>
+       <style type="text/css"> 
+            @import "lib/dojo1.6/dijit/themes/soria/soria.css";
+        </style>
+
+      
+        <script src="lib/dojo1.6/dojo/dojo.js" djConfig="parseOnLoad: true"></script>
+        <script>
+            dojo.require("dojox.charting.Chart");
+            dojo.require("dojox.charting.Chart2D");
+            dojo.require("dojox.charting.plot2d.Pie");
+            dojo.require("dojox.charting.action2d.Highlight");
+            dojo.require("dojox.charting.action2d.Magnify");
+            dojo.require("dojox.charting.action2d.MoveSlice");
+            dojo.require("dojox.charting.action2d.Tooltip");
+            dojo.require("dojox.charting.themes.Claro");
+            dojo.require("dojox.charting.themes.PlotKit.green");
+            dojo.require("dojox.charting.widget.Legend");
+
+            var data1 = [10000,9200,11811,12000,7662,13887];
+            var data2 = [3000,12000,17733,9876,12783,12899];
+            var data3 = [10000,9200,11811,12000,7662,13887].reverse();
+            dojo.ready(function(){
+                var chart = new dojox.charting.Chart2D("chartNode", {title: "Test Title"});
+                chart.setTheme(dojox.charting.themes.Claro);
+                chart.addPlot("default", {
+                    type: "Lines",
+                    markers: true
+                });
+                // Add axes
+                chart.addAxis("x", {title: 'title yang X', titleGap: 20,  natural: true, fixLower: "major", fixUpper: "major" });
+                chart.addAxis("y", {title: 'title Yang Y', min: 5000, max: 20000, vertical: true, fixLower: "major", fixUpper: "major" });
+
+                // Add the series of data
+                chart.addSeries(" Data Tahun - 2010", data1);
+                chart.addSeries(" Data Tahun - 2009", data2);
+                chart.addSeries(" Data Tahun - 2008", data3);
+
+                // Create the tooltip
+                var tip = new dojox.charting.action2d.Tooltip(chart,"default");
+                
+                // Create the magnifier
+                var mag = new dojox.charting.action2d.Magnify(chart,"default");
+                
+                // Render the chart!
+                chart.render();
+                
+                // Create the legend
+                var legend = new dojox.charting.widget.Legend({ chart: chart }, "legend");
+            });
+        </script>
+    </head>
+    <body class="soria">
+        <div id="chartNode" style="width:550px; height:500px; "></div><br />
+        <div id="legend" style="border: solid 1px #000000;"></div>
+    </body>
+</html>

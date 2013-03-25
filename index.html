@@ -1,0 +1,33 @@
+<html>
+<head>
+    <meta charset="utf-8">
+        <title>Test View</title>
+       
+        <style type="text/css"> 
+            @import "lib/dojo1.6/dijit/themes/soria/soria.css";
+        </style>
+
+      
+        <script src="lib/dojo1.6/dojo/dojo.js" djConfig="parseOnLoad: true"></script>
+        <script>
+                dojo.require("dijit.layout.AccordionContainer");
+                dojo.require("dijit.layout.ContentPane");
+                dojo.require("dijit.form.Button");
+                dojo.require("dijit.form.ValidationTextBox");
+                dojo.require("dojo.parser");
+            // call base js 
+            dojo.ready(function() {
+                //#code Dojo
+            });
+        </script>
+    </head>
+    <body class="soria">
+         <!-- <input dojoType="dijit.form.ValidationTextBox" /> -->
+        <div dojoType="dijit.layout.AccordionContainer" style="width: '100%';  height: 677px; margin: -7px -7px -7px -7px;" slideFrom="left">
+            <div dojoType="dijit.layout.ContentPane" title="Selamat Datang">1</div>
+            <div dojoType="dijit.layout.ContentPane" title="Form Entri Data">2</div>
+            <div dojoType="dijit.layout.ContentPane" title="Laporan & Rekapitulasi Data">3</div>
+            <div dojoType="dijit.layout.ContentPane" title="Diagram & Chart">3</div>
+        </div> 
+    </body>
+</html>

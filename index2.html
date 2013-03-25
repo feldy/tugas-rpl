@@ -1,0 +1,62 @@
+<html>
+<head>
+    <meta charset="utf-8">
+        <title>Test View</title>
+       <style type="text/css"> 
+            @import "lib/dojo1.6/dijit/themes/soria/soria.css";
+        </style>
+
+      
+        <script src="lib/dojo1.6/dojo/dojo.js" djConfig="parseOnLoad: true"></script>
+        <script>
+                // Require the basic 2d chart resource: Chart2D
+            dojo.require("dojox.charting.Chart2D");
+            
+            // Retrieve the Legend, Tooltip, and MoveSlice classes
+            dojo.require("dojox.charting.widget.Legend");
+            dojo.require("dojox.charting.action2d.Tooltip");
+            dojo.require("dojox.charting.action2d.MoveSlice");
+
+            // Require the theme of our choosing
+            //"Claro", new in Dojo 1.6, will be used
+            dojo.require("dojox.charting.themes.PlotKit.green");
+
+            // Define the data
+            // var chartData = [10000,9200,11811,12000,7662,13887,14200,12222,12000,10009,11288,12099];
+            var chartData = [10000,9200,11811,12000,7662];
+            // call base js 
+            dojo.ready(function() {
+                // Create the chart within it's "holding" node
+                var chart = new dojox.charting.Chart2D("chartNode");
+                // Set the theme
+                chart.setTheme(dojox.charting.themes.PlotKit.green);
+                // Add the only/default plot 
+                chart.addPlot("default", {
+                    type: "Pie",
+                    markers: true,
+                    radius: 100,
+                     // labelStyle: "columns",
+                     // startAngle: -10
+                    labelOffset: -20 //label position
+                });
+                // Add axes
+                chart.addAxis("x");
+                chart.addAxis("y", { min: 5000, max: 30000, vertical: true, fixLower: "major", fixUpper: "major" });
+                // Add the series of data
+                chart.addSeries("Monthly Sales - 2010", chartData);
+                // Create the tooltip
+                var tip = new dojox.charting.action2d.Tooltip(chart,"default");
+                // Create the slice mover
+                var mag = new dojox.charting.action2d.MoveSlice(chart,"default");
+                // Render the chart!
+                chart.render();
+                // Create the legend
+                var legend = new dojox.charting.widget.Legend({ chart: chart }, "legend");
+            });
+        </script>
+    </head>
+    <body class="soria">
+        <div id="chartNode" style="width:600px; height:300px;"></div>
+        <div id="legend"></div>
+    </body>
+</html>
