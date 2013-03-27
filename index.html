@@ -5,29 +5,39 @@
        
         <style type="text/css"> 
             @import "lib/dojo1.6/dijit/themes/soria/soria.css";
+            @import "lib/dojo1.6/dijit/themes/claro/claro.css";
+            @import "lib/dojo1.6/dijit/themes/claro/document.css";
         </style>
 
       
         <script src="lib/dojo1.6/dojo/dojo.js" djConfig="parseOnLoad: true"></script>
         <script>
-                dojo.require("dijit.layout.AccordionContainer");
-                dojo.require("dijit.layout.ContentPane");
-                dojo.require("dijit.form.Button");
-                dojo.require("dijit.form.ValidationTextBox");
-                dojo.require("dojo.parser");
+            dojo.require("dijit.layout.AccordionContainer");
+            dojo.require("dijit.layout.ContentPane");
+            dojo.require("dijit.form.Button");
+            dojo.require("dijit.form.ValidationTextBox");
+            dojo.require("dijit.layout.TabContainer");
+            dojo.require("dijit.layout.LinkPane");
+            dojo.require("dojo.parser");
             // call base js 
             dojo.ready(function() {
                 //#code Dojo
             });
         </script>
     </head>
-    <body class="soria">
-         <!-- <input dojoType="dijit.form.ValidationTextBox" /> -->
-        <div dojoType="dijit.layout.AccordionContainer" style="width: '100%';  height: 677px; margin: -7px -7px -7px -7px;" slideFrom="left">
+    <body class="claro">
+        <div dojoType="dijit.layout.AccordionContainer" style="width: '100%';  height: 677px; " slideFrom="left">
             <div dojoType="dijit.layout.ContentPane" title="Selamat Datang">1</div>
             <div dojoType="dijit.layout.ContentPane" title="Form Entri Data">2</div>
-            <div dojoType="dijit.layout.ContentPane" title="Laporan & Rekapitulasi Data">3</div>
-            <div dojoType="dijit.layout.ContentPane" title="Diagram & Chart">3</div>
+            <div dojoType="dijit.layout.ContentPane" title="Laporan &amp; Rekapitulasi Data">3</div>
+            <div dojoType="dijit.layout.ContentPane" title="Diagram &amp; Chart">
+                <div dojoType="dijit.layout.TabContainer" tabStrip="false" tabPosition="bottom" nested="true"  style="margin: -10px -10px -10px -10px;">
+                    <div dojoType="dijit.layout.ContentPane" title="Menu 1">Menu 1</div>
+                    <div dojoType="dijit.layout.ContentPane" title="Menu 2">Menu 2</div>
+                    <div dojoType="dijit.layout.ContentPane" title="Menu 3">Menu 3</div>
+                    <div dojoType="dijit.layout.ContentPane" title="Menu 4">Menu 4</div>
+                </div>
+            </div>
         </div> 
     </body>
 </html>

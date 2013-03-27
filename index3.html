@@ -99,8 +99,11 @@
                     radius: 100,
                     labelStyle: "columns",
                     htmlLabels: true,
+                    // labelOffset: 0,
                     startAngle: -10
                 });
+                // pieChart.addAxis("x", {title: 'Kependudukan Nasional'});
+                // pieChart.addAxis("y", { min: 5000, max: 30000, vertical: true, fixLower: "major", fixUpper: "major" });
                 pieChart.addSeries("Feldy Series", objData);
                 var anim_b = new dc.action2d.Highlight(pieChart, "default");
                 var anim_c = new dc.action2d.Tooltip(pieChart, "default"); 
